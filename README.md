@@ -21,7 +21,7 @@ The app can estimate System Lines of Code if number of Function Point is known f
 
 To clone the git version, do
 ```
-$ git clone git://github.com/sympy/sympy.git
+$ git clone https://github.com/FrackeR011/COCOMO2_Simulator.git
 ```
 
 ## License
