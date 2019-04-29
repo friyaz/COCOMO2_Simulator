@@ -179,4 +179,4 @@ class FP_Page_2(tk.Frame):
         self.FP = FP = UFP * CAF
                                   
         self.Result_Entry.delete('0', tk.END)
-        self.Result_Entry.insert('end',"%.2f"%self.FP)
+        self.Result_Entry.insert(int('end',"%.2f"%self.FP))

@@ -2,7 +2,7 @@ import Tkinter as tk
 import tkMessageBox
 import ttk
 
-LARGE_FONT = ("Verdana", 40)
+LARGE_FONT = ("Verdana", 30)
 BUTTON_FONT = ("Verdana", 20)
 RADIO_FONT = ('Verdana', 18)
 
@@ -107,13 +107,13 @@ class Effort_Page(tk.Frame):
         self.Dev_Cost = Dev_Cost = Labour_Rate * effort
 
         self.Effort_display.delete('1.0', tk.END)
-        self.Effort_display.insert('end',self.effort)
+        self.Effort_display.insert('end',"%.2f"%self.effort)
 
         self.Dev_Time_display.delete('1.0', tk.END)
-        self.Dev_Time_display.insert('end',self.Dev_Time)
+        self.Dev_Time_display.insert('end',"%.2f"%self.Dev_Time)
 
         self.Cost_display.delete('1.0', tk.END)
-        self.Cost_display.insert('end',self.Dev_Cost)
+        self.Cost_display.insert('end',"%.2f"%self.Dev_Cost)
 
 
 class Modify_Scale_Drivers(tk.Frame):
@@ -122,7 +122,7 @@ class Modify_Scale_Drivers(tk.Frame):
         tk.Frame.__init__(self, parent)
         self.controller=controller
         label = tk.Label(self, text="Scale Drivers", font=LARGE_FONT)
-        label.place(x=650, y=30)
+        label.place(x=655, y=45)
         back_button = tk.Button(self, text="Back", font=RADIO_FONT, command=lambda: controller.show_frame(Effort_Page))
         back_button.place(x=150, y=950)
 
@@ -163,7 +163,7 @@ class Modify_Cost_Drivers(tk.Frame):
         tk.Frame.__init__(self,parent)
         self.controller=controller
         label = tk.Label(self, text="Cost Drivers", font=LARGE_FONT)
-        label.place(x=650, y=30)
+        label.place(x=655, y=42)
         back_button = tk.Button(self, text="Back", font=BUTTON_FONT, command=lambda: controller.show_frame(Effort_Page))
         back_button.place(x=150, y=950)
 
