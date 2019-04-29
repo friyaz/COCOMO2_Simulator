@@ -17,6 +17,10 @@ The app can estimate System Lines of Code if number of Function Point is known f
 * Python 2.7
 * Tkinter module
 
+## Usage
+
+Run `main.py`
+
 ## Download
 
 To clone the git version, do
