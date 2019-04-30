@@ -29,8 +29,8 @@ class Effort_Page(tk.Frame):
         Cost_Driver_button.place(x=400, y=330)
         tk.Label(self, text="Default set to Nominal",background='white', font=("Verdana", 11)).place(x=450, y=460)
         
-        SLOC_Label = tk.Label(self, text="Source Lines of Code", font=RADIO_FONT)
-        SLOC_Label.place(x=150, y=200)
+        SLOC_Label = tk.Label(self, text="Kilo Lines of Code", font=RADIO_FONT)
+        SLOC_Label.place(x=170, y=200)
         self.SLOC_Entry = tk.Entry(self)
         self.SLOC_Entry.place(x=470, y=200)
         self.SLOC_Entry.config(font=RADIO_FONT, width=12)    
@@ -65,6 +65,31 @@ class Effort_Page(tk.Frame):
         Submit_Button.config(width=20)
         Submit_Button.place(x=600, y=560)
 
+        Label_A = tk.Label(self, text = "A", font=RADIO_FONT)
+        Label_A.place(x=1320, y=330)
+        self.A_Entry = A_Entry = tk.Entry(self)
+        A_Entry.place(x=1400, y=330)
+        A_Entry.insert('end',2.94)
+        A_Entry.config(font=RADIO_FONT, width=6)    
+        Label_B = tk.Label(self, text = "B", font=RADIO_FONT)
+        Label_B.place(x=1320, y=410)
+        self.B_Entry = B_Entry = tk.Entry(self)
+        B_Entry.place(x=1400, y=410)
+        B_Entry.insert('end',0.91)
+        B_Entry.config(font=RADIO_FONT, width=6)    
+        Label_C = tk.Label(self, text = "C", font=RADIO_FONT)
+        Label_C.place(x=1320, y=490)
+        self.C_Entry = C_Entry = tk.Entry(self)
+        C_Entry.place(x=1400, y=490)
+        C_Entry.insert('end',3.67)
+        C_Entry.config(font=RADIO_FONT, width=6)    
+        Label_D = tk.Label(self, text = "D", font=RADIO_FONT)
+        Label_D.place(x=1320, y=570)
+        self.D_Entry = D_Entry = tk.Entry(self)
+        D_Entry.place(x=1400, y=570)
+        D_Entry.insert('end',0.28)
+        D_Entry.config(font=RADIO_FONT, width=6)    
+
     def calculate_Effort(self):
         
         SD_Frame =  self.controller.get_page(Modify_Scale_Drivers)
@@ -72,7 +97,7 @@ class Effort_Page(tk.Frame):
         SD_Frame.set_scaleDrivers()
         CD_Frame.set_costDrivers()
 
-        SLOC = float(self.SLOC_Entry.get())/1000
+        SLOC = float(self.SLOC_Entry.get())
 
         if not self.controller.validate_input(SLOC, "SLOC must be non-negative"):
             return        
@@ -87,10 +112,10 @@ class Effort_Page(tk.Frame):
             selected = SD_Frame.var[i].get()
             sum_Scale_Drivers = sum_Scale_Drivers + SD_Frame.scaleDrivers[selected][i]
 
-        self.A = A = 2.94
-        self.B = B = 0.91
-        self.C = C = 3.67
-        self.D = D = 0.28 
+        self.A = A = float(self.A_Entry.get())
+        self.B = B = float(self.B_Entry.get())
+        self.C = C = float(self.C_Entry.get())
+        self.D = D = float(self.D_Entry.get()) 
         
         self.E = E = B + 0.01 * sum_Scale_Drivers
          
