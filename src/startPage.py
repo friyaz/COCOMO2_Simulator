@@ -20,7 +20,7 @@ class StartPage(tk.Frame):
         tk.Frame.__init__(self,parent)
         self.controller=controller        
         heading = tk.Label(self, text="COCOMO 2 Simulator", font=LARGE_FONT)
-        heading.place(x=600, y=80)
+        heading.place(x=580, y=80)
         button1 = tk.Button(self, wraplength=320, justify=tk.CENTER,text="Function Point Calculator", font=BUTTON_FONT, command=lambda: controller.show_frame(FP_Page_1),      background='white')
         button1.config(height=10, width=14)
         button1.place(x=200, y=350)

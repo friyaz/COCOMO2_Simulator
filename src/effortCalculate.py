@@ -116,7 +116,16 @@ class Effort_Page(tk.Frame):
         self.B = B = float(self.B_Entry.get())
         self.C = C = float(self.C_Entry.get())
         self.D = D = float(self.D_Entry.get()) 
-        
+
+        if( not self.controller.validate_input(A, "Wrong Input")):
+            return
+        if( not self.controller.validate_input(B, "Wrong Input")):
+            return
+        if( not self.controller.validate_input(C, "Wrong Input")):
+            return
+        if( not self.controller.validate_input(D, "Wrong Input")):
+            return
+
         self.E = E = B + 0.01 * sum_Scale_Drivers
          
         
