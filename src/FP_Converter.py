@@ -2,7 +2,7 @@ import Tkinter as tk
 import tkMessageBox
 import ttk
 
-LARGE_FONT = ("Verdana", 40)
+LARGE_FONT = ("Verdana", 35)
 BUTTON_FONT = ("Verdana", 20)
 RADIO_FONT = ('Verdana', 18)
       
@@ -17,7 +17,7 @@ class LOC_Page(tk.Frame):
         self.controller=controller
         self.set_Language_Factor()
         label = tk.Label(self, text="Function Point to LOC Converter", font=LARGE_FONT)
-        label.place(x=500, y=30)
+        label.place(x=500, y=70)
 
         label2 = tk.Label(self, text="Function Point", font=BUTTON_FONT)
         label2.place(x=150, y=300)
@@ -32,7 +32,7 @@ class LOC_Page(tk.Frame):
         self.textBox.place(x=390, y = 300)
         self.textBox.config(font=BUTTON_FONT, width=20)
         
-        buttonCommit=tk.Button(self, height=1, width=19, text="Commit", font=BUTTON_FONT, command=self.calculate_FP)
+        buttonCommit=tk.Button(self, height=1, width=19, text="Calculate", font=BUTTON_FONT, command=self.calculate_FP)
         buttonCommit.place(x=390, y=600)
 
         self.output = tk.Text(self, font=BUTTON_FONT, width=20, height=1)
@@ -75,4 +75,4 @@ class LOC_Page(tk.Frame):
         self.output.delete('1.0', tk.END)
         selected = self.var1.get()
         SLOC = int(FP) * self.languageFactor[selected]
-        self.output.insert("end", str(SLOC) + "\n")
+        self.output.insert('end', "%.2f"%str(SLOC) + "\n")
